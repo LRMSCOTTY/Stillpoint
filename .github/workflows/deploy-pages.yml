@@ -35,9 +35,11 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    # No `environment:` block here on purpose: declaring one requires GitHub
+    # to resolve/auto-create a "github-pages" Environment resource, which
+    # needs repo-admin permissions this integration's token doesn't have
+    # (it failed silently, pre-runner, with no logs). deploy-pages itself
+    # only needs the pages/id-token permissions already granted above.
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
