@@ -9,7 +9,10 @@
  * of the Chrome long-utterance cutoff bug — this also happens to match
  * authentic meditation/hypnosis delivery style (short phrases, real pauses). */
 export function L(text, pauseAfterMs = 3000) {
-  if (import.meta.env.DEV && text.length > 180) {
+  // Optional chaining: import.meta.env only exists under Vite. This module
+  // is also imported directly by scripts/generate-audio.mjs under plain
+  // Node (no Vite), where it must not throw.
+  if (import.meta.env?.DEV && text.length > 180) {
     // eslint-disable-next-line no-console
     console.warn(`[session content] line exceeds 180 chars (${text.length}): "${text.slice(0, 40)}..."`);
   }

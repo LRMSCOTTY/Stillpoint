@@ -1,4 +1,4 @@
-import { L, phase, estimateMinutes } from './schema';
+import { L, phase, estimateMinutes } from './schema.js';
 
 const ALPHA = { carrier: 200, beat: 10 };
 const THETA = { carrier: 200, beat: 6 };

@@ -1,4 +1,4 @@
-import { L, phase, estimateMinutes } from './schema';
+import { L, phase, estimateMinutes } from './schema.js';
 
 // Hypnosis session binaural carrier is 888Hz — the "abundance frequency"
 // popularized in manifestation/wealth audio content. This is a genre
